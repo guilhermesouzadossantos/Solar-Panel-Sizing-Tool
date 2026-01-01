@@ -1,0 +1,13 @@
+# Ignorar arquivos de dados (Excel, CSV)
+# * "qualquer arquivo"
+data/raw/*
+data/processed/*
+
+# Não ignorar o arquivo .gitkeep (para a pasta aparecer no GitHub)
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Ignorar arquivos temporários do Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
