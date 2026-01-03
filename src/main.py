@@ -1,13 +1,13 @@
 import pandas as pd
 
 # Leitura da planilha Dados_cliente1 (FATURA)
-df_fatura = pd.read_excel('/Users/guihl/Documents/Workspace/Solar-Panel-Sizing-Tool/data/raw/Dados_cliente1.xlsx')
+df_fatura = pd.read_excel('./data/raw/Dados_cliente1.xlsx')
 
 # Leitura da planilha Dados_cliente1 (INFORMACOES)
-df_informacoes = pd.read_excel('/Users/guihl/Documents/Workspace/Solar-Panel-Sizing-Tool/data/raw/Dados_cliente1.xlsx', sheet_name=1)
+df_informacoes = pd.read_excel('./data/raw/Dados_cliente1.xlsx', sheet_name=1)
 
 # Leitura da planilha HSP-RS
-df_hsp = pd.read_excel('/Users/guihl/Documents/Workspace/Solar-Panel-Sizing-Tool/data/raw/HSP-RS.xlsx')
+df_hsp = pd.read_excel('./data/raw/HSP-RS.xlsx')
 
 
 
