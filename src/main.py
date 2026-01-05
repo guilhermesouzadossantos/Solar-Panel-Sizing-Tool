@@ -1,5 +1,7 @@
 import pandas as pd
 
+# LEITURA DE DADOS
+
 # Leitura da planilha Dados_cliente1 (FATURA)
 df_fatura = pd.read_excel('./data/raw/Dados_cliente1.xlsx')
 
@@ -10,9 +12,18 @@ df_informacoes = pd.read_excel('./data/raw/Dados_cliente1.xlsx', sheet_name=1)
 df_hsp = pd.read_excel('./data/raw/HSP-RS.xlsx')
 
 
+# CALCULAR MÉDIA APARADA COM BASE EM UMA NOVA COLUNA
 
-# Calcular a media de consumo do cliente
-media_consumo = df_fatura['CONSUMO (KWH)'].mean()
+# Cria nova coluna para remover os valores máximo e mínimo
+df_fatura['CONSUMO (KWH) APARADO'] = df_fatura['CONSUMO (KWH)']
 
-# Definir a potencia do painel escolhido pelo cliente
-potencia_painel = df_informacoes['PAINEL (W)'].max()
+# Valor max = 0
+max_index = df_fatura['CONSUMO (KWH) APARADO'].idxmin()
+df_fatura.loc[max_index, 'CONSUMO (KWH) APARADO'] = 0
+
+#Valor min = 0
+min_index = df_fatura['CONSUMO (KWH) APARADO'].idxmax()
+df_fatura.loc[min_index, 'CONSUMO (KWH) APARADO'] = 0
+
+# Calcula média aparada desconsiderando linhas com consumo = 0 
+print(df_fatura[df_fatura['CONSUMO (KWH) APARADO'] != 0] ['CONSUMO (KWH) APARADO'].mean())
