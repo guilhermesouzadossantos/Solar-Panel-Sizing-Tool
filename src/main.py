@@ -38,3 +38,12 @@ capacidade_sistema_kwp = consumo_medio_diario / (hsp * 0.8)
 
 print('Horas de sol pleno:',hsp)
 print(f'Capacidade do sistema: {capacidade_sistema_kwp:.2f} kWp')
+
+
+# Converter kWp para Wp
+capacidade_sistema_wp = capacidade_sistema_kwp * 1000
+
+# Calcular a quantidade de módulos 
+qtd_modulos = math.ceil(capacidade_sistema_wp / (df_informacoes['PAINEL (W)'].item()))
+
+print('Quantidade de módulos fotovoltaicos:',qtd_modulos)
